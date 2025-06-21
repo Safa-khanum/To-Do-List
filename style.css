@@ -28,17 +28,39 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
     background: linear-gradient(135deg, rgba(255, 255, 196, 1.000) 0.000%, rgba(255, 97, 100, 1.000) 50.000%, rgba(176, 0, 18, 1.000) 100.000%)
 }
 
 .container {
     filter: drop-shadow(5px 5px 15px #00000047);
     width: 100%;
+    margin: 15px;
     max-width: 50%;
     min-height: 50vh;
-    height: 90%;
     background-color: var(--color-surface);
     border-radius: 16px;
     padding: 20px;
+}
+
+ul.list {
+    list-style: none;
+    padding-left: 1rem;
+    font-family: sans-serif;
+    font-size: 1.5rem;
+}
+
+ul.list li::before {
+    content: "•";
+    font-size: 2.5rem;
+    display: inline-block;
+    width: 1.5rem;
+    vertical-align: middle;
+}
+
+li {
+    border-radius: 22px;
+    padding: 5px;
+    border: 6px solid var(--color-border);
+    margin: 12px;
+    min-height: 200px;
 }
