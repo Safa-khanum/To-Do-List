@@ -32,7 +32,6 @@ A visually styled To-Do List interface built using HTML and CSS. This project fe
 1. Clone this repository:
 ```
    git clone https://github.com/carterdestreel/to-do-list.git
-
 ```
 2. Open file directory
 ```
