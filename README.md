@@ -8,7 +8,8 @@ A visually styled To-Do List interface built using HTML and CSS. This project fe
 
 ## 📸 Screenshot
 
-> *(Include a screenshot here once the layout is more developed)*
+> ![image](https://github.com/user-attachments/assets/5be851dd-41dd-4469-96d2-ce830219be01)
+
 
 ## 🧰 Technologies Used
 
