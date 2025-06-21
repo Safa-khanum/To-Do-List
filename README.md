@@ -15,6 +15,8 @@ A visually styled To-Do List interface built using HTML and CSS. This project fe
 
 - HTML5
 - CSS3 (Custom Properties, Flexbox, Gradient Backgrounds)
+- Flask
+- Python 3.13.5
 - Google Fonts (`Poppins`)
 
 ## 🎨 Color Palette
