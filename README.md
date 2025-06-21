@@ -42,8 +42,5 @@ A visually styled To-Do List interface built using HTML and CSS. This project fe
 open index.html
 ```
 ## 📌 To Do
-- Add task input and button
 - Display tasks dynamically
-- Implement task completion
-- Enable deleting tasks
 - Add localStorage support
