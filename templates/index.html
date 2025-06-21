@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet">
+    <style>
+        :root {
+            --color-primary: #1a73e8;
+            --color-primary-light: #4d9aff;
+            --color-primary-dark: #174ea6;
+
+            /* Secondary Colors */
+            --color-secondary: #fbbc05;
+            --color-secondary-light: #ffe082;
+            --color-secondary-dark: #c49000;
+
+            /* Neutral Colors */
+            --color-background: #ffffff;
+            --color-surface: #f5f5f5;
+            --color-border: #e0e0e0;
+            --color-text: #202124;
+            --color-muted: #5f6368;
+
+            /* Semantic Colors */
+            --color-success: #34a853;
+            --color-warning: #fbbc05;
+            --color-error: #ea4335;
+        }
+
+        html,
+        body {
+            height: 100vh;
+            min-height: 100vh;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Poppins, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            background-attachment: fixed;
+        }
+
+        .container {
+            filter: drop-shadow(5px 5px 15px #0000000c);
+            width: 100%;
+            margin: 15px;
+            max-width: 50%;
+            min-height: 80vh;
+            max-height: 90%;
+            background-color: var(--color-surface);
+            padding: 20px;
+            display: flex;
+            border: 2px solid var(--color-border);
+        }
+
+        .todo {
+            width: 500px;
+            box-shadow: 5px 5px 15px #0000001a;
+            padding: 20px;
+            ;
+            border-radius: 22px;
+            border: 2px solid var(--color-border);
+
+        }
+
+        .todo-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            /* space between text and icon */
+            justify-content: space-between;
+        }
+
+        .todo-header form {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        ul.list {
+            list-style: none;
+            padding-left: 1rem;
+            font-family: sans-serif;
+            font-size: 1.5rem;
+        }
+
+        ul.list li::before {
+            content: "•";
+            font-size: 2.5rem;
+            display: inline-block;
+            width: 1.5rem;
+            vertical-align: middle;
+        }
+
+        .taskCreate {
+            border: 0;
+            padding: 10px 20px;
+            border-radius: 22px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .taskCreate:focus {
+            border: 2px solid rgb(194, 194, 194);
+            outline: none;
+        }
+
+        li {
+            border-radius: 22px;
+            padding: 5px;
+            border: 6px solid var(--color-border);
+            margin: 12px;
+            min-height: 100px;
+            overflow: hidden;
+        }
+
+        svg:hover {
+            cursor: pointer;
+            color: rgba(0, 0, 0, 0.849);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="todo">
+            <div class="todo-header">
+                <h1>To-Do</h1>
+                <form action="{{ url_for('add') }}" method="POST">
+                    <input class="taskCreate" type="text" name="task" placeholder="Add a new task" required>
+                    <button type="submit" style="background: none; border: none;">
+                        <svg width="48" height="48" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor" viewBox="0 0 24 24">
+                            <path fill-rule="evenodd"
+                                d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4.243a1 1 0 1 0-2 0V11H7.757a1 1 0 1 0 0 2H11v3.243a1 1 0 1 0 2 0V13h3.243a1 1 0 1 0 0-2H13V7.757Z"
+                                clip-rule="evenodd" />
+                        </svg> </button>
+                </form>
+            </div>
+
+            <ul class="list">
+                {% for task in tasks %}
+                <li>{{ task }} <form action="{{ url_for('remove') }}" method="POST">
+                        <input type="hidden" name="task" value="{{ task }}">
+                        <button type="submit" style="background: none; border: none;"><svg class="w-[48px] h-[48px] text-gray-800 dark:text-white"
+                                aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                fill="currentColor" viewBox="0 0 24 24">
+                                <path fill-rule="evenodd"
+                                    d="M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm13.707-1.293a1 1 0 0 0-1.414-1.414L11 12.586l-1.793-1.793a1 1 0 0 0-1.414 1.414l2.5 2.5a1 1 0 0 0 1.414 0l4-4Z"
+                                    clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </form>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
